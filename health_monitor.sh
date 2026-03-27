@@ -4,13 +4,13 @@ SERVICE_FILE="services.txt"
 LOG_FILE="/var/log/health_monitor.log"
 DRY_RUN=false
 
-# Check for --dry-run flag
+
 if [[ "$1" == "--dry-run" ]]; then
     DRY_RUN=true
     echo "[INFO] Running in DRY-RUN mode"
 fi
 
-# Check if services.txt exists and is not empty
+
 if [[ ! -f "$SERVICE_FILE" || ! -s "$SERVICE_FILE" ]]; then
     echo "[ERROR] services.txt missing or empty"
     exit 1
@@ -30,7 +30,7 @@ log_event() {
 
 while read service
 do
-    # skip empty lines
+
     if [ -z "$service" ]; then
         continue
     fi
